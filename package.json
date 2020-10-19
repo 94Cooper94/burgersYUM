@@ -1,0 +1,27 @@
+{
+  "name": "burgersYUM",
+  "version": "1.0.0",
+  "description": "You want burger, you get burger",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/94Cooper94/burgersYUM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/94Cooper94/burgersYUM/issues"
+  },
+  "homepage": "https://github.com/94Cooper94/burgersYUM#readme"
+}
