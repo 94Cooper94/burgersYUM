@@ -1,34 +1,36 @@
 <h1>Burgers!</h1>
 
-<ul>
-  {{#each burgers}}
-    {{#unless hungry}}
-      {{> burgers/burger-block hunger=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<div>
+  <ul>
+    {{#each burgers}}
+      {{#unless hungry}}
+        <li>
+          {{burger_name}}
+        </li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#if hungry}}
-      {{> burgers/burger-block hunger=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+<div>
+  <ul>
+    {{#each burgers}}
+      {{#if hungry}}
+        {{burger_name}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
 
 <h2>Add a burger</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <label for="burgerName">Burger Name:</label>
-    <input type="text" id="burgerName" name="name">
-  </div>
+	<button class="change-hunger" type="submit" data-id="{{id}}" data-newHunger="{{hungry}}">
+		{{#if hungry}}BURGER TIME!{{else}}GET A BURGER!!{{/if}}
+	</button>
 
-  <div class="form-group">
-    <label for="hungry">Hungry?</label><br>
-    <input type="radio" name="hungry" value="1" checked> Hungry!<br>
-    <input type="radio" name="hungry" value="0"> Not Hungry
-  </div>
+	<button class="change-hunger" type="submit" data-id="{{id}}" data-newHunger="{{full}}">
+		{{#if full}}NAP TIME!{{else}}FORGET A BURGER!!{{/if}}
+	</button>
 
-  <button type="submit">Add burger</button>
 </form>
