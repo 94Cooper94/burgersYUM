@@ -1,45 +1,54 @@
-<h1>Burgers!</h1>
-<img src="../public/assets/img/burger.png" alt="just a plain jane burger">
+<h1 style="text-align: center;">Burgers!</h1>
+<div style="display: flex; justify-content: space-evenly;">
+  <img src="/assets/img/burger.png" alt="just a plain jane burger">
+</div>
 
-<div>
-  <ul>
-    {{#each burgers}}
-      {{#unless hungry}}
+<div style="display: flex; justify-content: space-evenly; flex-wrap:wrap">
+  <div>
+    available to eat
+    <ul>
+      {{#each burgers}}
+        {{#unless full}}
+          <li>
+            {{burger_name}}
+          </li>
+
+          <button class="change-full" data-id="{{id}}" data-newHunger="{{full}}">
+            {{#if full}}BURGER TIME!{{else}}Eat the burger!!{{/if}}
+          </button>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div>
+    eaten burgers
+    <ul>
+      {{#each burgers}}
+        {{#if full}}
         <li>
           {{burger_name}}
         </li>
-
-        <button class="change-full" data-id="{{id}}" data-newHunger="{{full}}">
-          {{#if hungry}}BURGER TIME!{{else}}EAT A BURGER!!{{/if}}
-        </button>
-      {{/unless}}
-    {{/each}}
-  </ul>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
 </div>
 
-<div>
-  <ul>
-    {{#each burgers}}
-      {{#if hungry}}
-      <li>
-        {{burger_name}}
-      </li>
-      {{/if}}
-    {{/each}}
-  </ul>
+<div style="display: flex; flex-direction: column; align-items:center">
+  <h2>Add a burger</h2>
+  <form class="create-form">
+
+    <div class="form-group">
+      <label for="newBurger">Burger:</label>
+      <input type="text" size="50" id="newBurger" name="burger_name">
+    </div>
+    
+    <div class="form-group">
+      <label for="full"></label>
+      <input type="radio" size="50" id="newBurger" name="full" value="0" checked>NOT EATEN 
+    </div>
+
+    <button type="submit">ADD BURGER</button>
+  </form>
 </div>
-
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="newBurger">Burger:</label>
-    <input type="text" size="50" id="newBurger" name="burger_name">
-  </div>
-  
-  <div class="form-group">
-    <label type="radio" name="full" value="1"> NO EAT YET</label>
-  </div>
-
-  <button type="submit">ADD BURGER</button>
-</form>
