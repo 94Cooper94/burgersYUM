@@ -1,4 +1,4 @@
-# burgersYum :burger:
+# burgersYum :hamburger:
 
 ## Table of Contents :file_folder:
 - [Description](#description)
